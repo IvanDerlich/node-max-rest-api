@@ -19,11 +19,7 @@ exports.postPost = (req, res, next) => {
   console.log("postPost requested");
   console.log("body:", req.body);
   const title = req.body.title;
-  console.log("title", title);
   const content = req.body.content;
-  console.log("content", content);
-
-  // Create a post in the db
   res.status(201).json({
     message: "Post created successfully!",
     post: {

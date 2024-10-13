@@ -9,8 +9,15 @@ const app = express();
 // Middleware to parse json data from incoming requests
 app.use(bodyParser.json());
 
+const allowedOrigins = ["http://localhost:3000"];
+
 app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
+  const origin = req.headers.origin;
+  console.log("origin: ", origin);
+  if (allowedOrigins.includes(origin)) {
+    res.setHeader("Access-Control-Allow-Origin", origin);
+  }
+  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
   res.setHeader(
     "Access-Control-Allow-Methods",
     "GET, POST, PUT, PATCH, DELETE"
