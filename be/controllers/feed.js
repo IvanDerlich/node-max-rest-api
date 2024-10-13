@@ -1,4 +1,5 @@
 exports.getPosts = (req, res, next) => {
+  console.log("getPosts requested");
   res.status(200).json({
     posts: [
       {
@@ -15,6 +16,7 @@ exports.getPosts = (req, res, next) => {
   });
 };
 exports.postPost = (req, res, next) => {
+  console.log("postPost requested");
   console.log("body:", req.body);
   const title = req.body.title;
   console.log("title", title);
